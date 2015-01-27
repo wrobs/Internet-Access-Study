@@ -12,7 +12,7 @@ bibliography: InternetPolity.bib
 
 @groshek_democratic_2009 Studies democratizing effects of the internet using linear regression methods.
 
-@best_internet_2009 Analizes the sudden transformation of the internet into a political tool.
+@best_internet_2009 Analizes the sudden transformation of the internet into a political empowerment tool.
 
 # References
 
