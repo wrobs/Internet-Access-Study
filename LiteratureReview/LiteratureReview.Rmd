@@ -3,7 +3,7 @@ title: "Internet Polity"
 author: "Rob Smith"
 date: "Tuesday, January 27, 2015"
 output: html_document
-bibliography: InternetPolity.bib
+bibliography: LiteratureReview.bib
 ---
 
 @kenski_connections_2006 Statistical study linking internet usage with general polity measures.
