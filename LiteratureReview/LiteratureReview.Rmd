@@ -1,10 +1,18 @@
 ---
-title: "Internet Polity"
-author: "Rob Smith"
+title: "Literature Review: Internet and Civic Progress"
+author: ""
 date: "Tuesday, January 27, 2015"
 output: html_document
 bibliography: LiteratureReview.bib
 ---
+In a broad sense I am interested in the social and political behavior that is associated with higher or lower per capita internet use. How does it effect the kinds of work that people seek? How does it effect the number of people who seek higher education? How does it effect the number of people who are politically active? Data for things like this can be found in the Gapminder dataset, so I'd like to see what kind of information I can glean from there.
+
+The concept of the Internet as a democratizing factor is not a new one. However, the relationship is usually looked at in terms of a political case study. Those who study it will look at a region before and after the internet became widely available there, and conjecture as to what role the internet played in the changes which took place there. The statistical studies which exist may look at internet access and regress it against other social, economic, and political qualities.
+
+I believe it's here that we run into issues with confounding variables and questions of causality. When we regress internet access against polity measures and find a positive relationship, we can propose that it's because internet access spurs economic development, education, and political action. However, it makes more sense to say that it is because someone in a country which is wealthy, educated, and democratic is more likely to be able to access the internet. So when you you regress these variables without any controls, of course you find a positive relationship! This result is trivial! I want to study how internet access affects behavior when a country's socioeconomic standing is controlled for.
+
+Using the gapminder dataset, we can use regression to control for countries' wealth and polity scores for instance, and then see how many women are in the workfoce, how much CO2 emissions the country produces, etc, and look at the relationship with internet acces that remains after the control.
+
 
 @kenski_connections_2006 Statistical study linking internet usage with general polity measures.
 
@@ -13,6 +21,8 @@ bibliography: LiteratureReview.bib
 @groshek_democratic_2009 Studies democratizing effects of the internet using linear regression methods.
 
 @best_internet_2009 Analizes the sudden transformation of the internet into a political empowerment tool.
+
+@stanley_rosen_is_2010 Great political analysis of internet use in China, A country that I imagine will be a bit of an outlier in just about any model you could make relating internet use to political efficacy.
 
 # References
 
