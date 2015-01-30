@@ -14,19 +14,19 @@ I believe it's here that we run into issues with confounding variables and quest
 Using the gapminder dataset, we can use regression to control for countries' wealth and polity scores for instance, and then see how many women are in the workfoce, how much CO2 emissions the country produces, etc, and look at the relationship with internet acces that remains after the control.
 
 
-@kenski_connections_2006 
+@kenski_connections_2006  
 Statistical study linking internet usage with general polity measures.
 
-@guillen_explaining_2005 
+@guillen_explaining_2005  
 Very broad political analysis of telecom development, accessibility, and democratization globally.
 
-@groshek_democratic_2009 
+@groshek_democratic_2009  
 Studies democratizing effects of the internet using linear regression methods.
 
-@best_internet_2009 
+@best_internet_2009  
 Analizes the sudden transformation of the internet into a political empowerment tool.
 
-@stanley_rosen_is_2010 
+@stanley_rosen_is_2010  
 Great political analysis of internet use in China, A country that I imagine will be a bit of an outlier in just about any model you could make relating internet use to political efficacy.
 
 # References
