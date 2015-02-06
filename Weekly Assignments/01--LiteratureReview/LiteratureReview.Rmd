@@ -29,5 +29,14 @@ Analizes the sudden transformation of the internet into a political empowerment 
 @stanley_rosen_is_2010  
 Great political analysis of internet use in China, A country that I imagine will be a bit of an outlier in just about any model you could make relating internet use to political efficacy.
 
+@base
+base stuff
+
+@ggplot2
+ggplot stuff
+
+@wdi
+wdi stuff
+
 # References
 

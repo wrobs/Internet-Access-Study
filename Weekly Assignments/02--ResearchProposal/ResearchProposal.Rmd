@@ -1,7 +1,7 @@
 ---
 title: "Research Proposal: Does Internet Access Influence pursuit of Education and Military Service?"
 author: ""
-date: "Tuesday, January 27, 2015"
+date: "Friday, February 6, 2015"
 output: html_document
 bibliography: ResearchProposal.bib
 ---
