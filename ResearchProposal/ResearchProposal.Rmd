@@ -3,7 +3,7 @@ title: "Research Proposal: Does Internet Access Influence pursuit of Education a
 author: ""
 date: "Tuesday, January 27, 2015"
 output: html_document
-bibliography: LiteratureReview.bib
+bibliography: ResearchProposal.bib
 ---
 #Introduction:
 I am interested in how access to the internet might alter the behavior of a population. Of particular interest are pursuuit of education and military career. We look at the internet, rightfully, as a tool which democratizes information. Even in China which places hard restrictions on its access, citizens are becoming more connected and informed [@stanley_rosen_is_2010],
@@ -22,6 +22,7 @@ In the WDI data, Male and Female progression to secondary school is based on Wor
 ##Implications
 If a connection remains after controls are set, it shows that internet useg likely affects populations directly, rather than as a side effect of an open society.
 
+#Review
 
 @kenski_connections_2006  
 Statistical study linking internet usage with general polity measures.
