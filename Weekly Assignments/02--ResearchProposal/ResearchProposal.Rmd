@@ -6,12 +6,12 @@ output: html_document
 bibliography: ResearchProposal.bib
 ---
 #Introduction:
-I am interested in how access to the internet might alter the behavior of a population. Of particular interest are pursuuit of education and military career. We look at the internet, rightfully, as a tool which democratizes information. Even in China which places hard restrictions on its access, citizens are becoming more connected and informed [@stanley_rosen_is_2010],
+I am interested in how access to the internet might alter the behavior of a population. Of particular interest are pursuit of education and military career. We look at the internet, rightfully, as a tool which democratizes information. Even in China which places hard restrictions on its access, citizens are becoming more connected and informed [@stanley_rosen_is_2010],
 
 The question is can we use rigorous statistical methods to find out whether internet use effects people's behavior and career choices, or if both of these things are correlated only by their common cause of an open, wealthy society?
 
 #Methods
-I'll be using the Gapminder and World Development Indicators data, and any other data I can find relating to internet usage or civic progress among countries. Time series data will be especially useful as I can look at how these things change side-by-side in the same country. For this reason the WDI data will be of principal use in drawing connections between my variables of interest, and the Gapminder data will be more or less added in for controls.
+I'll be using the Gapminder and World Development Indicators data, and any other data I can find relating to internet usage or civic development among countries. Time series data will be especially useful as I can look at how these things change side-by-side in the same country. For this reason the WDI data will be of principal use in drawing connections between my variables of interest, and the Gapminder data will be more or less added in for controls.
 
 ##Sample and Procedure
 The World Development Indicators data is collected by member countries and compiled by the world bank. Because the accuracy of the data depends on the effectiveness of agencies collecting the data within each country individually, this represents a possible flaw in the consistency of the data. Still, the sheer breadth and completeness of the data makes it a valuable tool. The Gapminder dataset also pulls from a variety of sources, often times from the WDI database, so there should be some overlap.
@@ -20,7 +20,7 @@ The World Development Indicators data is collected by member countries and compi
 In the WDI data, Male and Female progression to secondary school is based on World Bank estimates, citing UNESCO as a source. Gapminder's data on Armed Forces rates are sourced to the WDI, though I can't locate what specific source they are using. Gapminder's Internet usage data is also sourced to the World Bank which cites International Telecommunication Union, World Telecommunication/ICT Development Report and database, and World Bank estimates.
 
 ##Implications
-If a connection remains after controls are set, it shows that internet useg likely affects populations directly, rather than as a side effect of an open society.
+If a connection remains after controls are set, it shows that internet usage likely affects populations directly, rather than as a side effect of an open society.
 
 #Review
 

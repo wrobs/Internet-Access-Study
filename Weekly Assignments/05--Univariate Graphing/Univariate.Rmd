@@ -1,17 +1,17 @@
 ---
 title: "Internet Access, in relationship to GDP and College Enrollment"
 author: ""
-date: "Friday, April 24, 2015"
+date: "Friday, February 27, 2015"
 output: html_document
 ---
 ###Purpose of Study
-The internet is often a tool of democritization and progress, which can foster a society which is more productive, healthy, and free. However, the effect is diffictult to measure, because a society which is already productive and democratic is more likely to grant access to the internet. This study intends to show what relationship exists between per capita internet use and indicators of social and civic progress, with a focus on controlling as much as possible for everything else which would influence that progress. It's starting with the assumption that there is a very strong connection, then essentially doing everything possible to remove it throught controls, and seeing what remains.
+The internet is often a tool of democratization and progress, which can foster a society which is more productive, healthy, and free. However, the effect is difficult to measure, because a society which is already productive and democratic is more likely to grant access to the internet. This study intends to show what relationship exists between per capita internet use and indicators of social and civic development, with a focus on controlling as much as possible for everything else which would influence that development. We start with simple 2-variable correlation, then essentially do everything possible to remove it through controls, and see what remains.
 
 ###Variables
 So far, only GDP per Capita, Web Access Per capita, and College Enrollment(Gross % of college-age people) have been investigated. These are pulled from the WDI indicators ans labeled `gdp.cap`,`web.cap`, and `ter.cap`  respectively.
 
 ###Creation of Dataframe
-The code used here is a bit of a bruteforce approach...
+The code used here is a bit of a brute force approach...
 ```{r, message=FALSE, echo=FALSE}
 library(WDI)
 library(dplyr)
@@ -37,7 +37,7 @@ detach(DF)
 DF<-DF2
 rm(DF2)
 ```
-Some of those not mentioned before are HIV rates among men and women, money spent on education, and women in the workforce. At this point there is a DataFrame with the variables of interest. Unfortunately they are all coded as factors, so a similar bruteforce method is used to get them all coded numerically.
+Some of those not mentioned before are HIV rates among men and women, money spent on education, and women in the workforce. At this point there is a DataFrame with the variables of interest. Unfortunately they are all coded as factors, so a similar brute force method is used to get them all coded numerically.
 
 ```{r, message=FALSE}
 DF$web.cap<-as.numeric(as.character(DF$web.cap))
@@ -60,10 +60,10 @@ At this point we have variables of interest for all countries, as well as averag
 ```{r}
 DF.c<-DF[239:1736,]
 ```
-At this point the filter command from dplyr to investigate all sorts of data.
+At this point use the filter command from dplyr to investigate all sorts of data.
 
 ###Univariate Analysis
-(There are no categorical variables of interest. The numeric variables could be cut into intervals to force a categotical study, but this results in information loss. In lieu of that, here are three numeric graphs/analyses.)
+(There are no categorical variables of interest. The numeric variables could be cut into intervals to force a categorical study, but this results in information loss. In lieu of that, here are three numeric graphs/analyses.)
 ```{r, echo=FALSE}
 DF.c.2011<-filter(DF.c, year==2011)
 ggplot(data=DF.c.2011, aes(x=web.cap))+

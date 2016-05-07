@@ -58,7 +58,7 @@ if (window.hljs && document.readyState && document.readyState === "complete") {
 
 <div id="purpose-of-study" class="section level3">
 <h3>Purpose of Study</h3>
-<p>The internet is often a tool of democritization and progress, which can foster a society which is more productive, healthy, and free. However, the effect is diffictult to measure, because a society which is already productive and democratic is more likely to grant access to the internet. This study intends to show what relationship exists between per capita internet use and indicators of social and civic progress, with a focus on controlling as much as possible for everything else which would influence that progress. It’s starting with the assumption that there is a very strong connection, then essentially doing everything possible to remove it throught controls, and seeing what remains.</p>
+<p>The internet is often a tool of democratization and progress, which can foster a society which is more productive, healthy, and free. However, the effect is difficult to measure, because a society which is already productive and democratic is more likely to grant access to the internet. This study intends to show what relationship exists between per capita internet use and indicators of social and civic development, with a focus on controlling as much as possible for everything else which would influence that development. We start with simple 2-variable correlation, then essentially do everything possible to remove it through controls, and see what remains.</p>
 </div>
 <div id="variables" class="section level3">
 <h3>Variables</h3>
@@ -66,7 +66,7 @@ if (window.hljs && document.readyState && document.readyState === "complete") {
 </div>
 <div id="creation-of-dataframe" class="section level3">
 <h3>Creation of Dataframe</h3>
-<p>The code used here is a bit of a bruteforce approach…</p>
+<p>The code used here is a bit of a brute force approach…</p>
 <pre class="r"><code>DF&lt;-cbind(rename(WDI(indicator=&quot;IT.NET.USER.P2&quot;), web.cap=IT.NET.USER.P2),
           rename(WDI(indicator=&quot;SE.SEC.ENRR&quot;), sec.cap= SE.SEC.ENRR),
           rename(WDI(indicator=&quot;SE.TER.ENRR&quot;), ter.cap= SE.TER.ENRR),
@@ -85,7 +85,7 @@ DF2&lt;-as.data.frame(cbind(country,year,web.cap,elec.cap,gdp.cap,sec.cap,ter.ca
 detach(DF)
 DF&lt;-DF2
 rm(DF2)</code></pre>
-<p>Some of those not mentioned before are HIV rates among men and women, money spent on education, and women in the workforce. At this point there is a DataFrame with the variables of interest. Unfortunately they are all coded as factors, so a similar bruteforce method is used to get them all coded numerically.</p>
+<p>Some of those not mentioned before are HIV rates among men and women, money spent on education, and women in the workforce. At this point there is a DataFrame with the variables of interest. Unfortunately they are all coded as factors, so a similar brute force method is used to get them all coded numerically.</p>
 <pre class="r"><code>DF$web.cap&lt;-as.numeric(as.character(DF$web.cap))
 DF$sec.cap&lt;-as.numeric(as.character(DF$sec.cap))
 DF$ter.cap&lt;-as.numeric(as.character(DF$ter.cap))
@@ -102,7 +102,7 @@ DF$ter.gdr&lt;-as.numeric(as.character(DF$ter.gdr))
 DF$wrk.fem&lt;-as.numeric(as.character(DF$wrk.fem))</code></pre>
 <p>At this point we have variables of interest for all countries, as well as averages for all regions, for all years from 2005 to 2011. Because including regional averages would in a sense double-count the data from those countries, it’s good to cut down the data to just country statistics. The data is helpfully indexed in a way where the regions are all up at the beginning rather than mixed alphabetically with the rest of the data, so this is actually just a simple command.</p>
 <pre class="r"><code>DF.c&lt;-DF[239:1736,]</code></pre>
-<p>At this point the filter command from dplyr to investigate all sorts of data.</p>
+<p>At this point use the filter command from dplyr to investigate all sorts of data.</p>
 </div>
 
 

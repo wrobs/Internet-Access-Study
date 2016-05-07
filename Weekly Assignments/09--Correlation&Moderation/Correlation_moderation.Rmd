@@ -5,13 +5,13 @@ date: "Friday, April 17, 2015"
 output: html_document
 ---
 ###Purpose of Study
-The internet is often a tool of democritization and progress, which can foster a society which is more productive, healthy, and free. However, the effect is diffictult to measure, because a society which is already productive and democratic is more likely to grant access to the internet. This study intends to show what relationship exists between per capita internet use and indicators of social and civic progress, with a focus on controlling as much as possible for everything else which would influence that progress. It's starting with the assumption that there is a very strong connection, then essentially doing everything possible to remove it throught controls, and seeing what remains.
+The internet is often a tool of democratization and progress, which can foster a society which is more productive, healthy, and free. However, the effect is difficult to measure, because a society which is already productive and democratic is more likely to grant access to the internet. This study intends to show what relationship exists between per capita internet use and indicators of social and civic development, with a focus on controlling as much as possible for everything else which would influence that development. We start with simple 2-variable correlation, then essentially do everything possible to remove it through controls, and see what remains.
 
 ###Variables
 So far, only GDP per Capita, Web Access Per capita, and College Enrollment(Gross % of college-age people) have been investigated. These are pulled from the WDI indicators ans labeled `gdp.cap`,`web.cap`, and `ter.cap`  respectively.
 
 ###Creation of Dataframe
-The code used here is a bit of a bruteforce approach...
+The code used here is a bit of a brute force approach...
 ```{r, message=FALSE, echo=FALSE}
 library(WDI)
 library(dplyr)
@@ -37,7 +37,7 @@ detach(DF)
 DF<-DF2
 rm(DF2)
 ```
-Some of those not mentioned before are HIV rates among men and women, money spent on education, and women in the workforce. At this point there is a DataFrame with the variables of interest. Unfortunately they are all coded as factors, so a similar bruteforce method is used to get them all coded numerically.
+Some of those not mentioned before are HIV rates among men and women, money spent on education, and women in the workforce. At this point there is a DataFrame with the variables of interest. Unfortunately they are all coded as factors, so a similar brute force method is used to get them all coded numerically.
 
 ```{r, message=FALSE}
 DF$web.cap<-as.numeric(as.character(DF$web.cap))
@@ -60,10 +60,10 @@ At this point we have variables of interest for all countries, as well as averag
 ```{r}
 DF.c<-DF[239:1736,]
 ```
-At this point the filter command from dplyr to investigate all sorts of data.
+At this point use the filter command from dplyr to investigate all sorts of data.
 
 ###Univariate Analysis
-(There are no categorical variables of interest. The numeric variables could be cut into intervals to force a categotical study, but this results in information loss. In lieu of that, here are three numeric graphs/analyses.)
+(There are no categorical variables of interest. The numeric variables could be cut into intervals to force a categorical study, but this results in information loss. In lieu of that, here are three numeric graphs/analyses.)
 ```{r, echo=FALSE}
 DF.c.2011<-filter(DF.c, year==2011)
 ggplot(data=DF.c.2011, aes(x=web.cap))+
@@ -131,7 +131,7 @@ We do see that the color, indicating GDP per capita,  gets brighter as both inte
 ggplot(data=DF.c.2011, aes(x=web.cap, y=gdp.cap))+
   geom_point(colour="goldenrod")+
   labs(title="Web Access by GDP, 2011",
-       x="% College age pop. in College",
+       x="% Pop. With Internet Access",
        y="GDP per capita"
        )
 ```
@@ -139,14 +139,15 @@ ggplot(data=DF.c.2011, aes(x=web.cap, y=gdp.cap))+
 ggplot(data=DF.c.2011, aes(x=ter.cap, y=gdp.cap,))+
   geom_point(colour="cyan")+
   labs(title="Tertiary Education by GDP, 2011",
-       x="% Pop. With Internet access",
-       y="% GDP per capita"
+       x="% College Age in College",
+       y="GDP per capita"
        )
 ```
 
 
 
 Clearly these relationships are a bit stronger.
+
 
 I can divide the web data into quartiles and test if there are significant differences between them with aov.
 
@@ -158,8 +159,9 @@ summary(aov(gdp.cap~quartile, data=DF.c.2011.q))
 
 With an off-the-charts low p-value, there is clear evidence that there are differences in GDP between the quartiles.
 
+
 ###Chi-Square
-We can also run a chi square test, dividing one of the variables into 2 levels. Say, "low internet use" and "high internet use"
+We can also run a chi square test, dividing one of the variables into 2 levels. Say, "low internet use" and "high internet use", and test our data, assuming the null hypothesis that there is no relationship.
 
 
 ```{r, echo=FALSE, message=FALSE}
@@ -177,7 +179,7 @@ barplot(T2, xlab="GDP quartile", ylab="Internet use, dark=low, light=high")
 ```{r,echo=FALSE}
 chisq.test(T1)
 ```
-Again, there is a clear difference. If we run a chi square test on each pair of two (a total of 6 tests), at an alpha of .05/6=.008, we find that all are significant
+Again, there is a clear difference. If we run a chi square test on each pair of two (a total of 6 tests), at an alpha of .05/6=.008, we find that all are significant to reject the Null Hypothesis that there is no relationship.
 
 ```{r}
 Ta <- xtabs(~half.web + quartile.gdp, data = DF.c.2011[DF.c.2011$quartile.gdp==1|DF.c.2011$quartile.gdp==2])
@@ -219,7 +221,7 @@ Squaring this coefficient gives 0.2835543, so it can be said that GDP explains a
 
 
 ###Moderation
-The possible moderator of interest is web access. This is sort of a rephrasing of what the purpose of study isfor this variable: Does accass to internet change the existing relationship between GDP and pursuit of education?
+The possible moderator of interest is web access. To rephrase the purpose of study for this variable: Does access to internet change the existing relationship between GDP and pursuit of education?
 
 ```{r, echo=FALSE}
 ggplot(data=DF.c.2011, aes(y=ter.cap, x=gdp.cap,color=(half.web==1)))+
@@ -236,4 +238,4 @@ It appears it does! We can test this by creating a model with an interaction ter
 ```{r}
 summary(lm(ter.cap~ gdp.cap + half.web + gdp.cap*(half.web-1), data=DF.c.2011)) #The "-1" turns half.web into a dummy with levels 0 and 1
 ```
-The intuitive answer in this case is not quite true. The p-value of the test is found under "Pr(>|t|)". If we are testing at alpha=.05, the interaction term is not significant.
+While it would seem intuitive that such an interaction would exist, the test has not found adequate evidence for it. The p-values of the terms are found under "Pr(>|t|)". If we are testing at alpha=.05, the interaction term is not significant.
